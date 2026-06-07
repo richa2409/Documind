@@ -22,12 +22,30 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Install Dependencies
+      - name: Upgrade pip
         run: |
           python -m pip install --upgrade pip
+
+      - name: Install Dependencies
+        run: |
           pip install -r requirements.txt
 
-      - name: Run Tests
+      - name: Run Loader Test
         run: |
           python test_loader.py
+
+      - name: Run Chunker Test
+        run: |
           python test_chunker.py
+
+      - name: Run Embedder Test
+        run: |
+          python test_embedder.py
+
+      - name: Run Retriever Test
+        run: |
+          python test_retriever.py
+
+      - name: Run RAG Test
+        run: |
+          python test_rag.py
